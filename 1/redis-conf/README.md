@@ -2,10 +2,19 @@
 
 The following tasks require that you use OSS Redis directly from the repository (TBD: link to the relavent lesson about installing).
 
-## Launch the server from command line without any arguments (./path/to/your/redis/src/redis-server)
+## Task #1 Launch the server from command line without any arguments (./path/to/your/redis/src/redis-server)
 - What port is the server listening at?
 - Why is that port number used?
 - Stop the server
+
+
+### Installing Redis on Macbook
+
+```
+brew install wget
+```
+
+
 
 
 
