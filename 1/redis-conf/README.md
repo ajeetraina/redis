@@ -282,16 +282,61 @@ Open a new terminal and run the below command
 - Change the value of the bind directive to '0.0.0.0' and note the result
 
 ```
+./src/redis-server --port 6380 --bind 0.0.0.0
+9210:C 04 Mar 2020 22:53:40.047 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+9210:C 04 Mar 2020 22:53:40.047 # Redis version=5.0.7, bits=64, commit=00000000, modified=0, pid=9210, just started
+9210:C 04 Mar 2020 22:53:40.047 # Configuration loaded
+9210:M 04 Mar 2020 22:53:40.049 * Increased maximum number of open files to 10032 (it was originally set to 256).
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 5.0.7 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6380
+ |    `-._   `._    /     _.-'    |     PID: 9210
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+9210:M 04 Mar 2020 22:53:40.050 # Server initialized
+9210:M 04 Mar 2020 22:53:40.050 * DB loaded from disk: 0.000 seconds
+9210:M 04 Mar 2020 22:53:40.050 * Ready to accept connections
+```
 
 
+
+```
+
+ajeetraina@ajeetraina redis-stable % ./src/redis-cli -h 192.168.1.4 -p 6380
+192.168.1.4:6380> set a1 true
+OK
+192.168.1.4:6380> get a1
+"true"
+192.168.1.4:6380>
 ```
 
 
 - Stop the server
 
+If you have multiple redis-server instance running , first try to find out the specific process-id and then try to kill it
+
+```
+ajeetraina@ajeetraina redis-stable % ps aux | grep redis-server
+ajeetraina        9252   1.6  0.0  4268188    384 s004  R+   10:59PM   0:00.01 grep redis-server
+ajeetraina        9136   0.1  0.0  4322696   2108   ??  S    10:47PM   0:01.22 ./src/redis-server *:6381    
+ajeetraina        9210   0.1  0.0  4330888   2988 s001  S+   10:53PM   0:00.63 ./src/redis-server 0.0.0.0:6380    
+ajeetraina@ajeetraina redis-stable % 
 ```
 
-
+```
+kill -9 9210
 ```
 
 
