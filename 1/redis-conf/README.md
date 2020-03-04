@@ -9,17 +9,156 @@ The following tasks require that you use OSS Redis directly from the repository 
 - Stop the server
 
 
-### Steps
+### Pre-requisite
 
-- Installing Redis on Macbook
+- Installing WGET on Macbook
 
 ```
 brew install wget
 ```
 
 
+- Downloading Redis & Installing it
+
+```
+wget http://download.redis.io/redis-stable.tar.gz
 
 
+--2020-03-04 22:06:50--  http://download.redis.io/redis-stable.tar.gz
+Resolving download.redis.io (download.redis.io)... 109.74.203.151
+Connecting to download.redis.io (download.redis.io)|109.74.203.151|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2023006 (1.9M) [application/x-gzip]
+Saving to: ‘redis-stable.tar.gz’
+
+redis-stable.tar.gz 100%[===================>]   1.93M  1.16MB/s    in 1.7s    
+
+2020-03-04 22:06:52 (1.16 MB/s) - ‘redis-stable.tar.gz’ saved [2023006/2023006]
+```
+
+```
+tar xvzf redis-stable.tar.gz
+cd redis-stable
+make
+```
+
+If you see the below message, then we are good to go ahead
+
+```
+   CC redis-cli.o
+    LINK redis-cli
+    CC redis-benchmark.o
+    LINK redis-benchmark
+    INSTALL redis-check-rdb
+    INSTALL redis-check-aof
+
+Hint: It's a good idea to run 'make test' ;)
+```
+
+It is a good idea to copy both the Redis server and the command line interface into the proper places, either manually using the following commands:
+
+```
+cp src/redis-server /usr/local/bin/
+cp src/redis-cli /usr/local/bin/
+```
+
+Or just using 
+
+```
+make install
+```
+
+You can test if your build has worked correctly by typing make test, but this is an optional step.
+
+While I ran '''make test''' command, it threw error:
+
+```
+!!! WARNING The following tests failed:
+
+*** [err]: WAIT should not acknowledge 1 additional copy if slave is blocked in tests/unit/wait.tcl
+Expected condition '[$master wait 1 3000] == 0' to be true ([::redis::redisHandle73 wait 1 3000] == 0)
+Cleanup: may take some time... OK
+make[1]: *** [test] Error 1
+make: *** [test] Error 2
+```
+
+I still need to see why this error popped up.
+
+After compilation the src directory inside the Redis distribution is populated with the different executables that are part of Redis:
+
+- redis-server is the Redis Server itself.
+- redis-sentinel is the Redis Sentinel executable (monitoring and failover).
+- redis-cli is the command line interface utility to talk with Redis.
+- redis-benchmark is used to check Redis performances.
+- redis-check-aof and redis-check-rdb (redis-check-dump in 3.0 and below) are useful in the rare event of corrupted data files.
+
+## Launch the server from command line without any arguments (./path/to/your/redis/src/redis-server)
+
+```
+./src/redis-server 
+8211:C 04 Mar 2020 22:16:45.366 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+8211:C 04 Mar 2020 22:16:45.366 # Redis version=5.0.7, bits=64, commit=00000000, modified=0, pid=8211, just started
+8211:C 04 Mar 2020 22:16:45.366 # Warning: no config file specified, using the default config. In order to specify a config file use ./src/redis-server /path/to/redis.conf
+8211:M 04 Mar 2020 22:16:45.367 * Increased maximum number of open files to 10032 (it was originally set to 256).
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 5.0.7 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 8211
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+8211:M 04 Mar 2020 22:16:45.368 # Server initialized
+8211:M 04 Mar 2020 22:16:45.368 * Ready to accept connections
+```
+
+## What port is the server listening at?
+
+Port: 6379
+
+
+## Why is that port number used?
+
+As per this [link](http://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search=3&page=45), the creator of Redis, Salvatore Sanfilippo requested to reserve this port number for redis. By default, the Redis server is configured to run on the default port 6379. You can connect to the server locally or remotely using the redis-cli command line tool using this port number
+
+## Stop the server
+
+If you're on Macbook, then the clean way to stop the redis server would be killing the process ID.
+
+```
+killall redis-server
+```
+
+OR
+
+find redis process and kill
+
+```
+ps aux | grep redis-server
+ajeetraina        8378   0.1  0.0  4302216   2040 s001  S+   10:32PM   0:00.08 ./src/redis-server *:6379
+ajeetraina        9050   0.0  0.0  4297992    760 s003  S+   10:33PM   0:00.01 grep redis-server
+```
+
+```
+kill -9 8378
+```
+
+If you're on Ubuntu OS,
+
+```
+/etc/init.d/redismaster stop
+/etc/init.d/redismaster start
+```
 
 
 ## Launch the server from command line and make it listen on port 9736 on startup using arguments
