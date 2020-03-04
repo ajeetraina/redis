@@ -161,13 +161,138 @@ If you're on Ubuntu OS,
 ```
 
 
-## Launch the server from command line and make it listen on port 9736 on startup using arguments
+# Task #2 -  Launch the server from command line and make it listen on port 9736 on startup using arguments
 
 - Connect to the server with redis-cli
+
+```
+./src/redis-server
+9091:C 04 Mar 2020 22:41:02.489 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+9091:C 04 Mar 2020 22:41:02.489 # Redis version=5.0.7, bits=64, commit=00000000, modified=0, pid=9091, just started
+9091:C 04 Mar 2020 22:41:02.489 # Warning: no config file specified, using the default config. In order to specify a config file use ./src/redis-server /path/to/redis.conf
+9091:M 04 Mar 2020 22:41:02.491 * Increased maximum number of open files to 10032 (it was originally set to 256).
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 5.0.7 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 9091
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+9091:M 04 Mar 2020 22:41:02.492 # Server initialized
+9091:M 04 Mar 2020 22:41:02.492 * DB loaded from disk: 0.000 seconds
+9091:M 04 Mar 2020 22:41:02.492 * Ready to accept connections
+```
+
+Using Redis-cli to connect to Redis Server
+
+```
+./src/redis-cli 
+127.0.0.1:6379> 
+```
+
+
 - Change the runtime configuration to listen on port 6380 (no need to persist the change). Describe and explain what happened.
+
+Open a new terminal and run the below command:
+
+```
+./src/redis-server --port 6380
+9105:C 04 Mar 2020 22:43:15.073 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+9105:C 04 Mar 2020 22:43:15.073 # Redis version=5.0.7, bits=64, commit=00000000, modified=0, pid=9105, just started
+9105:C 04 Mar 2020 22:43:15.073 # Configuration loaded
+9105:M 04 Mar 2020 22:43:15.075 * Increased maximum number of open files to 10032 (it was originally set to 2560).
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 5.0.7 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6380
+ |    `-._   `._    /     _.-'    |     PID: 9105
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+9105:M 04 Mar 2020 22:43:15.076 # Server initialized
+9105:M 04 Mar 2020 22:43:15.077 * DB loaded from disk: 0.000 seconds
+9105:M 04 Mar 2020 22:43:15.077 * Ready to accept connections
+```
+
+As shown above, I have passed --port 6380 directly on the commandline.
+
+Open a new terminal and run the below command
+
+```
+./src/redis-cli -p 6380
+127.0.0.1:6380> 
+```
+
+
 - Change the value of directive per your choosing (e.g. maxmemory) to a value of your choosing (e.g. '1gb')
+
+```
+./src/redis-server --maxmemory 1gb --port 6381
+9136:C 04 Mar 2020 22:47:39.543 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+9136:C 04 Mar 2020 22:47:39.543 # Redis version=5.0.7, bits=64, commit=00000000, modified=0, pid=9136, just started
+9136:C 04 Mar 2020 22:47:39.543 # Configuration loaded
+9136:M 04 Mar 2020 22:47:39.544 * Increased maximum number of open files to 10032 (it was originally set to 2560).
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 5.0.7 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6381
+ |    `-._   `._    /     _.-'    |     PID: 9136
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+9136:M 04 Mar 2020 22:47:39.545 # Server initialized
+9136:M 04 Mar 2020 22:47:39.546 * DB loaded from disk: 0.000 seconds
+9136:M 04 Mar 2020 22:47:39.546 * Ready to accept connections
+```
+
+
+
+
 - Change the value of the bind directive to '0.0.0.0' and note the result
+
+```
+
+
+```
+
+
 - Stop the server
+
+```
+
+
+```
 
 
 ## Launch the server from command line with a configuration file that you've prepared. The server should:
