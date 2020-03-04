@@ -9,7 +9,9 @@ The following tasks require that you use OSS Redis directly from the repository 
 - Stop the server
 
 
-### Installing Redis on Macbook
+### Steps
+
+- Installing Redis on Macbook
 
 ```
 brew install wget
