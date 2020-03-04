@@ -202,7 +202,7 @@ Using Redis-cli to connect to Redis Server
 ```
 
 
-- Change the runtime configuration to listen on port 6380 (no need to persist the change). Describe and explain what happened.
+##  Change the runtime configuration to listen on port 6380 (no need to persist the change). Describe and explain what happened.
 
 Open a new terminal and run the below command:
 
@@ -245,7 +245,7 @@ Open a new terminal and run the below command
 ```
 
 
-- Change the value of directive per your choosing (e.g. maxmemory) to a value of your choosing (e.g. '1gb')
+##  Change the value of directive per your choosing (e.g. maxmemory) to a value of your choosing (e.g. '1gb')
 
 ```
 ./src/redis-server --maxmemory 1gb --port 6381
@@ -323,7 +323,7 @@ OK
 ```
 
 
-- Stop the server
+## Stop the server
 
 If you have multiple redis-server instance running , first try to find out the specific process-id and then try to kill it
 
