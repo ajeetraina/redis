@@ -54,5 +54,39 @@ ubuntu@ip-172-31-25-81:~$ redis-cli --eval hello.lua
 "Hello, world!"
 ```
 
+## Example #3:
+
+
+```
+$ redis-cli
+127.0.0.1:6379> rpush region:one count:emea count:usa count:atlantic
+(integer) 3
+127.0.0.1:6379> rpush region:two "count:usa"
+(integer) 1
+127.0.0.1:6379> exit
+```
+
+### Let us write a lua script:
+
+```
+~$ cat local.lua 
+local count=0  
+local broadcast=redis.call("lrange", KEYS[1], 0,-1)  
+for _,key in ipairs(broadcast) do 
+redis.call("INCR",key)
+  count=count+1
+end  
+return count
+```
+
+
+```
+ubuntu@ip-172-31-25-81:~$ redis-cli
+127.0.0.1:6379> mget count:usa count:atlantic count:emea
+1) "1"
+2) "1"
+3) "1"
+127.0.0.1:6379>
+```
 
 
