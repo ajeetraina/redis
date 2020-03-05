@@ -15,8 +15,8 @@ Before you begin with lua script, let us get familiar with two important stuffs:
 - Sorted Sets
 - Lua Script
 
-For Sorted Sets, refer [this](https://github.com/ajeetraina/redis/blob/master/3/counting/sorted-sets/README.md) link
-For lua script, refer [this](https://github.com/ajeetraina/redis/blob/master/lua-script/README.md) link
+For Sorted Sets, refer [this](https://github.com/ajeetraina/redis/blob/master/3/counting/sorted-sets/README.md) link <br>
+For lua script, refer [this](https://github.com/ajeetraina/redis/blob/master/lua-script/README.md) link <br>
 
 
 
