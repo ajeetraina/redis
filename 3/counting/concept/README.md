@@ -1,5 +1,8 @@
 # Creating and Managing Strings
 
+Redis is an open-source, in-memory key-value data store. 
+In Redis, strings are the most basic type of value you can create and manage. 
+
 Keys that hold strings can only hold one value; you cannot store more than one string in a single key. However, strings in Redis are binary-safe, meaning a Redis string can hold any kind of data, from alphanumeric characters to JPEG images. The only limit is that strings must be 512 MB long or less.
 
 To create a string, use the set command. For example, the following set command creates a key named key_Welcome1 that holds the string "Howdy":
