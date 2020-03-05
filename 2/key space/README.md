@@ -1,6 +1,6 @@
 # Exercise #2 - Redis Keyspace
 
-[Concept]()
+[Concept](https://github.com/ajeetraina/redis/blob/master/2/concept.md)
 
 ## Find the overhead of an empty database from Redis' (hint: INFO's memory section) and the OS' (e.g. ps)
 - What is the empty dataset's overhead?
