@@ -7,6 +7,15 @@
 - Explain the difference between Redis' and the OS' reports of RAM consumption
 
 
+### Explanation:
+
+Redis maintains several private data structures for managing the internals of the keyspace. 
+The most notable data structure is the global dictionary (a hash map) that maps key names to their (pointers to their) respective values.
+
+Naturally, these internal administrative data structures incur some overhead in terms of RAM. 
+The bigger the dataset becomes, so do global keyspace overheads. That said, the global overheads are comparatively negligible once the dataset starts growing.
+
+
 Infra Setup:
 
 - Memory => 1 GB
@@ -80,4 +89,62 @@ ubuntu@ip-172-31-25-81:/etc/redis$ ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | 
  1861  1334 sshd: ubuntu [priv]          0.4  0.0
  ```
  
+ OR
  
+ ```
+ ubuntu@ip-172-31-25-81:/etc/redis$ sudo pmap 14484 | tail -n 1
+ total            56100K
+ ```
+ 
+ 
+ ```
+ ubuntu@ip-172-31-25-81:/etc/redis$ sudo pmap 14484
+14484:   /usr/local/bin/redis-server 127.0.0.1:6379       
+0000000000400000   1692K r-x-- redis-server
+00000000007a7000      8K r---- redis-server
+00000000007a9000     24K rw--- redis-server
+00000000007af000   2196K rw---   [ anon ]
+000000000269c000    132K rw---   [ anon ]
+00007f204b47d000   5632K rw---   [ anon ]
+00007f204b9fd000      4K -----   [ anon ]
+00007f204b9fe000   8192K rw---   [ anon ]
+00007f204c1fe000      4K -----   [ anon ]
+00007f204c1ff000   8192K rw---   [ anon ]
+00007f204c9ff000      4K -----   [ anon ]
+00007f204ca00000   8192K rw---   [ anon ]
+00007f204d200000   8192K rw---   [ anon ]
+00007f204db75000   1792K r-x-- libc-2.23.so
+00007f204dd35000   2048K ----- libc-2.23.so
+00007f204df35000     16K r---- libc-2.23.so
+00007f204df39000      8K rw--- libc-2.23.so
+00007f204df3b000     16K rw---   [ anon ]
+00007f204df3f000     96K r-x-- libpthread-2.23.so
+00007f204df57000   2044K ----- libpthread-2.23.so
+00007f204e156000      4K r---- libpthread-2.23.so
+00007f204e157000      4K rw--- libpthread-2.23.so
+00007f204e158000     16K rw---   [ anon ]
+00007f204e15c000     28K r-x-- librt-2.23.so
+00007f204e163000   2044K ----- librt-2.23.so
+00007f204e362000      4K r---- librt-2.23.so
+00007f204e363000      4K rw--- librt-2.23.so
+00007f204e364000     12K r-x-- libdl-2.23.so
+00007f204e367000   2044K ----- libdl-2.23.so
+00007f204e566000      4K r---- libdl-2.23.so
+00007f204e567000      4K rw--- libdl-2.23.so
+00007f204e568000   1056K r-x-- libm-2.23.so
+00007f204e670000   2044K ----- libm-2.23.so
+00007f204e86f000      4K r---- libm-2.23.so
+00007f204e870000      4K rw--- libm-2.23.so
+00007f204e871000    152K r-x-- ld-2.23.so
+00007f204ea8a000     24K rw---   [ anon ]
+00007f204ea96000      4K r---- ld-2.23.so
+00007f204ea97000      4K rw--- ld-2.23.so
+00007f204ea98000      4K rw---   [ anon ]
+00007fff2a43e000    132K rw---   [ stack ]
+00007fff2a469000      8K r----   [ anon ]
+00007fff2a46b000      8K r-x--   [ anon ]
+ffffffffff600000      4K r-x--   [ anon ]
+ total            56100K
+```
+
+As you can see, the total memory used by the process 14484 is 56100 KB or kilobytes. You can also see how much memory the libraries and other files required to run the process with PID 14484 is using as well here
