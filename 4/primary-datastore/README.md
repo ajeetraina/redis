@@ -3,7 +3,7 @@
 
 ## Task #1:
 
-- Requirements
+Requirements
 
 - Product details should include a name, a description, a vendor, a price, a main category and some images
 - It needs to be possible to create/update/delete product details in a save way by taking the logical consistency of the catalouge into account (e.g. a product can not belong to a category which is not existent)
@@ -15,25 +15,25 @@
 
 ### Product Image
 
-Id : Number
-Value : Binary
+- Id : Number
+- Value : Binary
 
 ### Product
 
-Id : Number
-Name : String
-Description: String
-Vendor : String
-Price : Number
-Currency : String
-MainCategory : Category (1)
-Images : Image (0..n)
+- Id : Number
+- Name : String
+- Description: String
+- Vendor : String
+- Price : Number
+- Currency : String
+- MainCategory : Category (1)
+- Images : Image (0..n)
 
 ### Category
 
-Id : Number
-Name : String
-Products : Product (0..n)
+- Id : Number
+- Name : String
+- Products : Product (0..n)
 
 ## Implementation
 
