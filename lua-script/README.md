@@ -34,6 +34,21 @@ You can also write lua script as shown below:
 Save it hello.lua 
 
 
+## Example #1: PING-PONG Test
+
+```
+ cat ping.lua 
+local reply = redis.call('PING')
+return reply
+```
+
+```
+ubuntu@ip-172-31-25-81:~$ redis-cli EVAL "$(cat ping.lua)" 0
+PONG
+```
+
+
+
 
 ## Example #2:
 
