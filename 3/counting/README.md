@@ -26,11 +26,12 @@
 Script in Lua the equivalents of ZINCRBY and ZINCRBYFLOAT
 
 
-#### Approach
+Before you begin with lua script, let us get familiar with two important stuffs:
 
-- [Sorted Sets]
-  -  [ZADD]
-  
+- Sorted Sets
+- Lua Script
+
+For Sorted Sets, refer [this](https://github.com/ajeetraina/redis/blob/master/3/counting/sorted-sets/README.md) link
   
 
 
