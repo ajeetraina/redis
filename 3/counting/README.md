@@ -26,6 +26,15 @@
 Script in Lua the equivalents of ZINCRBY and ZINCRBYFLOAT
 
 
+#### Approach
+
+- [Sorted Sets]
+  -  [ZADD]
+  
+  
+
+
+
 
 ##### What is Lua Script?
 
@@ -59,8 +68,7 @@ You can also write lua script as shown below:
 Save it hello.lua 
 
 
-[Sorted Sets]
--  [ZADD]()
+
 
 
 
