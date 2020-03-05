@@ -3,6 +3,7 @@
 [Concept](https://github.com/ajeetraina/redis/blob/master/2/concept.md)
 
 ## Find the overhead of an empty database from Redis' (hint: INFO's memory section) and the OS' (e.g. ps)
+
 - What is the empty dataset's overhead?
 - Explain the difference between Redis' and the OS' reports of RAM consumption
 
@@ -14,6 +15,10 @@ The most notable data structure is the global dictionary (a hash map) that maps 
 
 Naturally, these internal administrative data structures incur some overhead in terms of RAM. 
 The bigger the dataset becomes, so do global keyspace overheads. That said, the global overheads are comparatively negligible once the dataset starts growing.
+
+#### Please Note: 
+
+Every key in the keyspace has its own overhead, that is used for managing the key's internal "record" in the global dictionary. This overhead is "charged" for every key in the keyspace, regardless any of the key's properties.
 
 
 Infra Setup:
@@ -147,4 +152,10 @@ ffffffffff600000      4K r-x--   [ anon ]
  total            56100K
 ```
 
-As you can see, the total memory used by the process 14484 is 56100 KB or kilobytes. You can also see how much memory the libraries and other files required to run the process with PID 14484 is using as well here
+As you can see, the total memory used by the process 14484 is 56100 KB or kilobytes. You can also see how much memory the libraries and other files required to run the process with PID 14484 is using as well here.
+
+
+## Explain the difference between Redis' and the OS' reports of RAM consumption
+
+<TBD>
+
