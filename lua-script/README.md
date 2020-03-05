@@ -1,6 +1,9 @@
 
 # Introduction to Lua Script
 
+
+Redis has an embedded scripting language.
+
 It lets you create your own scripted extensions to the Redis database. That means that with Redis you can execute Lua scripts like this:
 
 ```
@@ -29,3 +32,27 @@ You can also write lua script as shown below:
 ```
 
 Save it hello.lua 
+
+
+
+Example #2:
+
+Our first Redis Lua script just returns a value without actually interacting with Redis in any meaningful way:
+The first line sets up a local variable with our message, and the second line returns that value from the Redis server to the client. Save this file locally as hello.lua and run it like so:
+
+```
+cat hello.lua
+local msg = "Hello, world!"
+return msg
+```
+
+Running this will print “Hello, world!”. The first argument of EVAL is the complete lua script — here we’re using the cat command to read the script from a file. The second argument is the number of Redis keys that the script will access. Our simple “Hello World” script doesn’t access any keys, so we use 0.
+
+
+```
+ubuntu@ip-172-31-25-81:~$ redis-cli --eval hello.lua
+"Hello, world!"
+```
+
+
+
