@@ -35,7 +35,7 @@ Save it hello.lua
 
 
 
-Example #2:
+## Example #2:
 
 Our first Redis Lua script just returns a value without actually interacting with Redis in any meaningful way:
 The first line sets up a local variable with our message, and the second line returns that value from the Redis server to the client. Save this file locally as hello.lua and run it like so:
