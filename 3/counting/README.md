@@ -20,6 +20,6 @@ Before you begin with lua script, let us get familiar with two important stuffs:
 For Sorted Sets, refer [this](https://github.com/ajeetraina/redis/blob/master/3/counting/sorted-sets/README.md) link <br>
 For lua script, refer [this](https://github.com/ajeetraina/redis/blob/master/lua-script/README.md) link <br>
 
-<TBD>
+- TBD -
 
 
