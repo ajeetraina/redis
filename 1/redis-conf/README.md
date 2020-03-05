@@ -342,12 +342,55 @@ kill -9 9210
 
 ## Launch the server from command line with a configuration file that you've prepared. The server should:
 - Listen on port 6380
+
+Open up redis-stable/redis.conf and ensure that the following entry have been made:
+
+```
+port 6380
+```
+
 - Be protect by a password
+
+
+```
+authpass P@ssw0rd
+```
+
 - Use up to 512 megabytes of RAM for data
+
+```
+maxmemory 512mb
+```
+
+
 - Be persisted using RDB every 10 seconds if more than 1000 writes have been made, and every minute if 4000 writes have been made
 
+By default Redis saves snapshots of the dataset on disk, in a binary file called dump.rdb. You can configure Redis to have it save the dataset every N seconds if there are at least M changes in the dataset, or you can manually call the SAVE or BGSAVE commands.
+
+For example, this below configuration will make Redis automatically dump the dataset to disk every 10 seconds if at least 1000 keys changed:
+
+```
+save 10 1000
+```
+
+```
+save 60 4000
+```
+
+
+This strategy is known as snapshotting.
+
+## How does it works?
+
+- Whenever Redis needs to dump the dataset to disk, this is what happens:
+- Redis forks. We now have a child and a parent process.
+- The child starts to write the dataset to a temporary RDB file.
+- When the child is done writing the new RDB file, it replaces the old one.
+
+This method allows Redis to benefit from copy-on-write semantics.
 
 ## Run (if you haven't already) sudo make install from Redis' repository directory to install it on the server. Verify that the server's service starts correctly and that you can connect to it. Locate the configuration file that is used by the deployment.
-You've arrived at a customer's site where the OSS is deployed on Ubuntu 16. 
 
-## Assuming that you need to perform a configuration change (e.g. setting maxmemory), what steps will you take?
+
+
+### You've arrived at a customer's site where the OSS is deployed on Ubuntu 16. Assuming that you need to perform a configuration change (e.g. setting maxmemory), what steps will you take?
