@@ -650,6 +650,141 @@ OK
 
 ## Run (if you haven't already) sudo make install from Redis' repository directory to install it on the server. Verify that the server's service starts correctly and that you can connect to it. Locate the configuration file that is used by the deployment.
 
+```
+make install
+cd src && /Library/Developer/CommandLineTools/usr/bin/make install
 
+Hint: It's a good idea to run 'make test' ;)
+
+    INSTALL install
+    INSTALL install
+    INSTALL install
+    INSTALL install
+    INSTALL install
+```
 
 ### You've arrived at a customer's site where the OSS is deployed on Ubuntu 16. Assuming that you need to perform a configuration change (e.g. setting maxmemory), what steps will you take?
+
+I assume that customer is running Ubuntu 16.04 LTS on AWS Cloud. They might be logging into Ubuntu OS instance via:
+
+```
+ssh -i "mynewkey.pem" ubuntu@ec2-54-187-128-174.us-west-2.compute.amazonaws.com
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.4.0-1101-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ip-172-31-25-81:~$ cat /etc/os-release
+NAME="Ubuntu"
+VERSION="16.04.6 LTS (Xenial Xerus)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 16.04.6 LTS"
+VERSION_ID="16.04"
+HOME_URL="http://www.ubuntu.com/"
+SUPPORT_URL="http://help.ubuntu.com/"
+BUG_REPORT_URL="http://bugs.launchpad.net/ubuntu/"
+VERSION_CODENAME=xenial
+UBUNTU_CODENAME=xenial
+```
+
+
+I assume that they might have installed redis following the below steps:
+
+```
+curl -O http://download.redis.io/redis-stable.tar.gz
+tar xzvf redis-stable.tar.gz
+cd redis-stable
+make
+```
+
+```
+ubuntu@ip-172-31-25-81:~/redis-stable$ sudo mkdir /etc/redis
+ubuntu@ip-172-31-25-81:~/redis-stable$ 
+ubuntu@ip-172-31-25-81:/etc/redis$ ls
+ubuntu@ip-172-31-25-81:/etc/redis$ sudo cp -rf ~/redis-stable/redis.conf .
+ubuntu@ip-172-31-25-81:/etc/redis$ ls
+redis.conf
+ubuntu@ip-172-31-25-81:/etc/redis$ 
+```
+
+Open up redis.conf and make the below changes
+
+```
+supervisord systemd
+dir /var/lib/redis
+```
+
+Create redis.service under /etc/systemd/system directory and add the below contents
+
+
+
+cat /etc/systemd/system/redis.service
+
+```
+[Unit]
+Description=Redis In-Memory Data Store
+After=network.target
+
+[Service]
+User=redis
+Group=redis
+ExecStart=/usr/local/bin/redis-server /etc/redis/redis.conf
+ExecStop=/usr/local/bin/redis-cli shutdown
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```
+ubuntu@ip-172-31-25-81:/etc/redis$ sudo adduser --system --group --no-create-home redis
+Adding system user `redis' (UID 112) ...
+Adding new group `redis' (GID 116) ...
+Adding new user `redis' (UID 112) with group `redis' ...
+Not creating home directory `/home/redis'.
+ubuntu@ip-172-31-25-81:/etc/redis$ sudo mkdir /var/lib/redis
+ubuntu@ip-172-31-25-81:/etc/redis$ sudo chown redis:redis /var/lib/redis
+ubuntu@ip-172-31-25-81:/etc/redis$ sudo chmod 770 /var/lib/redis
+ubuntu@ip-172-31-25-81:/etc/redis$ sudo systemctl start redis
+ubuntu@ip-172-31-25-81:/etc/redis$ sudo systemctl status redis
+● redis.service - Redis In-Memory Data Store
+   Loaded: loaded (/etc/systemd/system/redis.service; disabled; vendor preset: enabled)
+   Active: active (running) since Thu 2020-03-05 09:02:15 UTC; 10s ago
+ Main PID: 14421 (redis-server)
+    Tasks: 4
+   Memory: 1.0M
+      CPU: 16ms
+   CGroup: /system.slice/redis.service
+           └─14421 /usr/local/bin/redis-server 127.0.0.1:6379       
+
+Mar 05 09:02:15 ip-172-31-25-81 redis-server[14421]:  |    `-._`-._        _.-'_.-'    |
+Mar 05 09:02:15 ip-172-31-25-81 redis-server[14421]:   `-._    `-._`-.__.-'_.-'    _.-'
+Mar 05 09:02:15 ip-172-31-25-81 redis-server[14421]:       `-._    `-.__.-'    _.-'
+Mar 05 09:02:15 ip-172-31-25-81 redis-server[14421]:           `-._        _.-'
+Mar 05 09:02:15 ip-172-31-25-81 redis-server[14421]:               `-.__.-'
+Mar 05 09:02:15 ip-172-31-25-81 redis-server[14421]: 14421:M 05 Mar 2020 09:02:15.586 # WARNING: The TCP ba
+Mar 05 09:02:15 ip-172-31-25-81 redis-server[14421]: 14421:M 05 Mar 2020 09:02:15.586 # Server initialized
+Mar 05 09:02:15 ip-172-31-25-81 redis-server[14421]: 14421:M 05 Mar 2020 09:02:15.586 # WARNING overcommit_
+Mar 05 09:02:15 ip-172-31-25-81 redis-server[14421]: 14421:M 05 Mar 2020 09:02:15.586 # WARNING you have Tr
+Mar 05 09:02:15 ip-172-31-25-81 redis-server[14421]: 14421:M 05 Mar 2020 09:02:15.586 * Ready to accept con
+lines 1-20/20 (END)
+```
+
+
