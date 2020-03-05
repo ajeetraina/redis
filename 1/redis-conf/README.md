@@ -787,4 +787,17 @@ Mar 05 09:02:15 ip-172-31-25-81 redis-server[14421]: 14421:M 05 Mar 2020 09:02:1
 lines 1-20/20 (END)
 ```
 
+```
+sudo redis-cli
+127.0.0.1:6379> set a1 true
+OK
+127.0.0.1:6379> get a1
+"true"
+127.0.0.1:6379> 
+```
 
+For any config changes, all you need is to follow below steps:
+
+- Edit redis.conf file under /etc/redis
+- Save it
+- Restart - sudo systemctl restart redis
