@@ -2,7 +2,9 @@
 
 [Concept](https://github.com/ajeetraina/redis/blob/master/2/concept.md)
 
-## Find the overhead of an empty database from Redis' (hint: INFO's memory section) and the OS' (e.g. ps)
+## Exercise #2.1 - Keyspace Overhead
+
+Find the overhead of an empty database from Redis' (hint: INFO's memory section) and the OS' (e.g. ps)
 
 - What is the empty dataset's overhead?
 - Explain the difference between Redis' and the OS' reports of RAM consumption
@@ -158,4 +160,71 @@ As you can see, the total memory used by the process 14484 is 56100 KB or kiloby
 ## Explain the difference between Redis' and the OS' reports of RAM consumption
 
 <TBD>
+
+
+## Exercise #2.2 - Key overhead
+
+- Find the minimal overhead of a key with a String value
+
+
+The MEMORY USAGE command reports the number of bytes that a key and its value require to be stored in RAM.
+The reported usage is the total of memory allocations for data and administrative overheads that a key its value require.
+
+```
+ubuntu@ip-172-31-25-81:/etc/redis$ sudo redis-cli
+127.0.0.1:6379> SET "" ""
+OK
+127.0.0.1:6379> MEMORY USAGE ""
+(integer) 46
+127.0.0.1:6379>
+```
+
+## Exercise #2.3 - Keyspace Pattern: 'SCAN"
+
+Read, understand and internalize the section covering SCAN's guarantees to understand its limits. Prepare to be quizzed by your customers.
+
+### Concept:
+
+### What is this SCAN command all about?
+
+The SCAN command and the closely related commands SSCAN, HSCAN and ZSCAN are used in order to incrementally iterate over a collection of elements.
+
+- SCAN iterates the set of keys in the currently selected Redis database.
+- SSCAN iterates elements of Sets types.
+- HSCAN iterates fields of Hash types and their associated values.
+- ZSCAN iterates elements of Sorted Set types and their associated scores
+
+As of v2.8, the SCAN offers a way for performing a full keyspace scan similar to KEYS, but in a more polite manner. It is essentially a stateless (server-wise) cursor that allows iterating over the keyspace, and unlike KEYS it is not atomic and blocking.
+
+Note: make sure that you understand the purpose of the COUNT subcommand - it controls the amount of effort performed by the server to locate matching keys, and thus only indirectly the number of actual results returned in each iteration. The higher the COUNT, the longer each call to SCAN will take to complete.
+
+
+### SCAN basic usage
+
+- SCAN is a cursor based iterator. 
+- This means that at every call of the command, the server returns an updated cursor that the user needs to use as the cursor argument in the next call.
+- An iteration starts when the cursor is set to 0, and terminates when the cursor returned by the server is 0. The following is an example of SCAN iteration:
+
+```
+127.0.0.1:6379> scan 0
+1) "0"
+2) 1) "a1"
+   2) ""
+```
+
+# SCAN GUARENTEES
+
+- The SCAN command, and the other commands in the SCAN family, are able to provide to the user a set of guarantees associated to full iterations.
+
+- A full iteration always retrieves all the elements that were present in the collection from the start to the end of a full iteration. This means that if a given element is inside the collection when an iteration is started, and is still there when an iteration terminates, then at some point SCAN returned it to the user.
+
+- A full iteration never returns any element that was NOT present in the collection from the start to the end of a full iteration. So if an element was removed before the start of an iteration, and is never added back to the collection for all the time an iteration lasts, SCAN ensures that this element will never be returned.
+
+However because SCAN has very little state associated (just the cursor) it has the following drawbacks:
+
+- A given element may be returned multiple times. It is up to the application to handle the case of duplicated elements, for example only using the returned elements in order to perform operations that are safe when re-applied multiple times.
+
+- Elements that were not constantly present in the collection during a full iteration, may be returned or not: it is undefined.
+
+
 
