@@ -63,7 +63,7 @@
 
 ## [Redis Enterprise]()
 
-| Feature | Redis OSS     | RedisLabs      | 
+| Feature | Redis OSS     | Redis Enterprise      | 
 | -----------| ------------- |-------------|
 | Scability     |                                 Yes     |       Fully Automated   |  
 |  HA           | Built-in HA, manual intervention may be required    |       Fully automated                  | 
