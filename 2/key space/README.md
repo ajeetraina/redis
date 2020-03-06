@@ -44,16 +44,16 @@ If you run the below command:
 ```
 127.0.0.1:6379> info memory
 # Memory
-used_memory:853256
+used_memory:853256 => 0.8 mb
 used_memory_human:833.26K
 used_memory_rss:5619712
 used_memory_rss_human:5.36M
 used_memory_peak:853256
 used_memory_peak_human:833.26K
 used_memory_peak_perc:100.01%
-used_memory_overhead:841030 => 0.8 MB
+used_memory_overhead:841030 => 0.8 mb
 used_memory_startup:791336
-used_memory_dataset:12226
+used_memory_dataset:12226. => 12 kilobyte
 used_memory_dataset_perc:19.74%
 allocator_allocated:1363824
 allocator_active:1617920
