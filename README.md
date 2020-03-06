@@ -63,17 +63,17 @@
 
 ## [Redis Enterprise]()
 
-| Feature| Redis OSS     | RedisLabs      | 
+| Feature       | Redis OSS     | RedisLabs      | 
 | ------------- |:-------------:|: -------------:|
-| Scability |  Built-in HA and automatic failover           |      Fully Automated Scala      |  
-|  HA | Hash­based sharding (and hash tags)          |   Fully automated         | 
-|  Performance |      |   Up to x2 base, Stable         | 
-|  Multitenancy |          |       Yes     | 
-| Consistency  | Hard to operate        |    Tunable        | 
-| Operations |         |     Minimal, automated       | 
-| Sharding | | Automatic resharding when increasing the shard count |
-| Sharding | | Increasing the shard count leads to a balanced state |
-| Proxy | Built-in Proxy for connection multiplexing and command re-pipelining |
-| Failover | | Automatic failover and failure recovery (Watchdogs, Supervisor, ...)|
-| Sharding | | Hash­based sharding (and hash tags) |
+| Scability     |  Built-in HA and automatic failover     |      Fully Automated Scala      |  
+|  HA           | Hash-based sharding (and hash tags)     |   Fully automated               | 
+|  Performance  |                                         |   Up to x2 base, Stable         | 
+|  Multitenancy |                                         |       Yes                       | 
+| Consistency   |                  Hard to operate        |    Tunable                      | 
+| Operations    |                                         |     Minimal, automated       | 
+| Sharding      |                                         | Automatic resharding when increasing the shard count |
+| Sharding      |                                         | Increasing the shard count leads to a balanced state |
+| Proxy         |                                         | Built-in Proxy for connection multiplexing and command re-pipelining |
+| Failover      |                                         | Automatic failover and failure recovery (Watchdogs, Supervisor, ...)|
+| Sharding.     |                                         | Hash­based sharding (and hash tags) |
 | Multikey Operations | | Support for several multi­key operations (i.e. MSET/MGET) |
