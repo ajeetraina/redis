@@ -14,7 +14,7 @@
 | ------------- |:-------------:|
 |   Leading OSS in-memory database platform, supporting any high performance operational, analytics or hybrid use case            |  The OSS home and commercial provider of Redis Enterprise technology, platform, products and services          |  
 
-# Redis Enterprise Vs Redis OSS
+# Redis OSS
 
 
 ## Standalone Redis
@@ -61,7 +61,7 @@
 | Each client needs to connect to each shard | |
 
 
-## [Redis Enterprise]()
+## Redis OSS VS Redis Enterprise Software
 
 | Feature | Redis OSS     | Redis Enterprise      | 
 | -----------| ------------- |-------------|
