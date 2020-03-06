@@ -5,3 +5,9 @@
 - [Exercise #2: Redis Keyspace](https://github.com/ajeetraina/redis/blob/master/2/key%20space/README.md)
 - [Exercise #3: Counter Patterns](https://github.com/ajeetraina/redis/blob/master/3/counting/README.md)
 - [Exercise #4: Redis as a Primary Datastore]()
+
+
+# Redis Enterprise Vs Redis OSS
+
+- [Redis OSS]()
+- [Redis Enterprise]()
