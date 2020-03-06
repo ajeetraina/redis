@@ -45,4 +45,16 @@
 |   Complex+, manual           |            | 
 
 
-## 
+## [Redis OSS Cluster](https://redis.io/topics/cluster-tutorial)
+
+| Redis OSS     | RedisLabs      | 
+| ------------- |:-------------:|
+|   Built-in HA and automatic failover           |            |  
+|   Hash­based sharding (and hash tags)          |            | 
+|   No support for multi­key operations      |            | 
+|   Doesn't support standard clients, OSS Cluster client required         |            | 
+|   Hard to operate        |            | 
+|   Scalable        |            | 
+|   Lower Performance       |            | 
+|   Scalable        |            | 
+
