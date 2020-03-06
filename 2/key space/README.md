@@ -171,6 +171,17 @@ OK
 127.0.0.1:6379>
 ```
 
+## Before:
+
+ubuntu@ip-172-31-25-81:~$ sudo pmap 14075 | tail -n 1
+ total            57732K => 57mb
+ 
+## After:
+
+ubuntu@ip-172-31-25-81:~$ sudo pmap 14075 | tail -n 1
+ total            61316K => 61mb
+
+
 ## Exercise #2.3 - Keyspace Pattern: 'SCAN"
 
 Read, understand and internalize the section covering SCAN's guarantees to understand its limits. Prepare to be quizzed by your customers.
