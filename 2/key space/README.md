@@ -26,8 +26,8 @@ Every key in the keyspace has its own overhead, that is used for managing the ke
 Infra Setup:
 
 
-redis-cli> flushdb
-rdis-cli> flushall
+redis-cli> flushdb<br>
+rdis-cli> flushall<br>
 
 - Memory => 1 GB
 
