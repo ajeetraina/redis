@@ -16,6 +16,9 @@
 
 # Redis Enterprise Vs Redis OSS
 
+
+## Standalone Redis
+
 | Redis OSS       | RedisLabs       | 
 | ------------- |:-------------:|
 |   No Concept of sharding           |            |  
@@ -24,4 +27,5 @@
 |   No Multitenancy           |            | 
 |   Manual & Complex Operation           |            | 
 |   Relaxed (Multiple Replicas) Consistency           |            | 
-|   No Concept of sharding           |            | 
+|   Single instance performance for writes           |            | 
+|   Single instance performance for writes           |            | 
