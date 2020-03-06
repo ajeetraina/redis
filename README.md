@@ -57,4 +57,5 @@
 |   Scalable        |            | 
 |   Lower Performance       |            | 
 |   Scalable        |            | 
-
+| Performance dependent on the number of connections per shard |    |
+| Each client needs to connect to each shard | |
