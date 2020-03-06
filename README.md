@@ -7,6 +7,13 @@
 - [Exercise #4: Redis as a Primary Datastore]()
 
 
+
+# RedisLabs Vs Redis OSS
+
+| Redis OSS       | RedisLabs       | 
+| ------------- |:-------------:|
+|   Leading OSS in-memory database platform, supporting any high performance operational, analytics or hybrid use case            |  The OSS home and commercial provider of Redis Enterprise technology, platform, products and services          |  
+
 # Redis Enterprise Vs Redis OSS
 
 - [Redis OSS]()
