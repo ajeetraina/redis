@@ -63,11 +63,11 @@
 
 ## Redis OSS VS Redis Enterprise Software
 
-| Feature | Redis OSS     | Redis Enterprise      | 
+| Feature | Redis OSS Cluster    | Redis Enterprise      | 
 | -----------| ------------- |-------------|
 | Scability     |                                 Yes     |       Fully Automated   |  
 |  HA           | Built-in HA, manual intervention may be required    |       Fully automated                  | 
-|  Performance  |                       Lower                  |   Up to x2 base, Stable            | 
+|  Performance  |                       Lower (Performance dependent on the number of connections per shard)                 |   Up to x2 base, Stable            | 
 |  Multitenancy |                        None                 |       Yes                          | 
 | Consistency   |                  Relaxed (2 replicas per master shard)       |    Tunable                         | 
 | Operations    |             Complex++, manual                 |     Minimal, automated             | 
@@ -75,7 +75,7 @@
 | Sharding      |                                         | Increasing the shard count leads to a balanced state |
 | Proxy         |                                         | Built-in Proxy for connection multiplexing and command re-pipelining |
 | Failover      |                                         | Automatic failover and failure recovery (Watchdogs, Supervisor, ...)|
-| Sharding.     |                                         | Hash based sharding (and hash tags) |
-| Multikey Operations | | Support for several multikey operations (i.e. MSET/MGET) |
+| Sharding    |     Hash-based sharding (and hash tags)                   | Hash based sharding (and hash tags) |
+| Multikey Operations |  No support for multi­key operations | Support for several multikey operations (i.e. MSET/MGET) |
 | Clients for Database    |  Doesn't support standard clients, OSS Cluster client required     |   Supports standard clients for standard clustered databases |
 |                         |       |  Node-based quorum, 1 replica per master shard, doesn't allow to read from replicas |
