@@ -18,4 +18,10 @@
 
 | Redis OSS       | RedisLabs       | 
 | ------------- |:-------------:|
-|              |            |  
+|   No Concept of sharding           |            |  
+|   No automatic Failover           |            | 
+|   No Scability         |            | 
+|   No Multitenancy           |            | 
+|   Manual & Complex Operation           |            | 
+|   Relaxed (Multiple Replicas) Consistency           |            | 
+|   No Concept of sharding           |            | 
