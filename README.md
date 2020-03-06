@@ -29,3 +29,20 @@
 |   Relaxed (Multiple Replicas) Consistency           |            | 
 |   Single instance performance for writes           |            | 
 |   Single instance performance for writes           |            | 
+
+
+## [Redis Sentinel](https://redis.io/topics/sentinel)
+
+| Redis OSS     | RedisLabs      | 
+| ------------- |:-------------:|
+|   No Scability            |            |  
+|   No HA (Yes, but can take comparable long)          |            | 
+|   Built-in HA and automatic failover        |            | 
+|   Doesn't support standard clients, Sentinel discovery mechanism instead          |            | 
+|   Hard to operate          |            | 
+|   No Multitenancy          |            | 
+|   Relaxed (1 master + 2 replicas)         |            | 
+|   Complex+, manual           |            | 
+
+
+## 
