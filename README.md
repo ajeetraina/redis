@@ -8,7 +8,7 @@
 
 
 
-# RedisLabs Vs Redis OSS
+# RedisLabs Vs Redis OSS 
 
 | Redis OSS       | RedisLabs       | 
 | ------------- |:-------------:|
@@ -16,5 +16,6 @@
 
 # Redis Enterprise Vs Redis OSS
 
-- [Redis OSS]()
-- [Redis Enterprise]()
+| Redis OSS       | RedisLabs       | 
+| ------------- |:-------------:|
+|              |            |  
