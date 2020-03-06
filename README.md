@@ -64,9 +64,8 @@
 ## [Redis Enterprise]()
 
 | Feature | Redis OSS     | RedisLabs      | 
-| -----------:| ------------- |:-------------:|
-
-| Scability        | Built-in HA and automatic failover       |       Fully Automated Scala           |  
+| -----------| ------------- |-------------|
+| Scability   | Built-in HA and automatic failover       |       Fully Automated Scala           |  
 |  HA           | Hash-based sharding (and hash tags)     |   Fully automated               | 
 |  Performance  |                                         |   Up to x2 base, Stable         | 
 |  Multitenancy |                                         |       Yes                       | 
