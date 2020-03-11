@@ -372,6 +372,8 @@ ALL TESTS PASSED.
 2020-03-11 18:54:46 [$] executing: 'chown redislabs:redislabs /etc/opt/redislabs/redislabs_env_config.sh'
 ```
 
+You might need to enable 8443 port for accessing Redis Enterprise on Microsoft Azure.
+
 
 
 
