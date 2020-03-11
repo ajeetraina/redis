@@ -320,6 +320,58 @@ sudo service systemd-resolved restart
 ```
 
 
+```
+Unpacking sntp (1:4.2.8p10+dfsg-5ubuntu7.1) ...
+Setting up ntpdate (1:4.2.8p10+dfsg-5ubuntu7.1) ...
+Setting up libopts25:amd64 (1:5.18.12-4) ...
+Setting up sntp (1:4.2.8p10+dfsg-5ubuntu7.1) ...
+Setting up ntp (1:4.2.8p10+dfsg-5ubuntu7.1) ...
+Created symlink /etc/systemd/system/network-pre.target.wants/ntp-systemd-netif.path → /lib/systemd/system/ntp-systemd-netif.path.
+Created symlink /etc/systemd/system/multi-user.target.wants/ntp.service → /lib/systemd/system/ntp.service.
+ntp-systemd-netif.service is a disabled or a static unit, not starting it.
+Processing triggers for systemd (237-3ubuntu10.39) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for libc-bin (2.27-3ubuntu1) ...
+2020-03-11 18:54:33 [$] executing: 'ntpdate-debian -u'
+11 Mar 18:54:43 ntpdate[16477]: adjust time server 206.55.191.142 offset 0.006343 sec
+2020-03-11 18:54:43 [!] Note: Log files will be stored on the root file system, in path /var/opt/redislabs/log
+
+RedisLabs rest-api documentation has been deployed in /usr/share/doc/redislabs .
+
+2020-03-11 18:54:45 [!] Installation is complete!
+2020-03-11 18:54:45 [$] executing: '/opt/redislabs/bin/rlcheck --retry=10 --suppress-tests=verify_bootstrap_status,verify_processes,verify_pidfiles,verify_tcp_connectivity'
+Saving to file: /var/opt/redislabs/log/rlcheck.log
+(Remark : Will stop on first failure)
+##### Welcome to RedisLabs Enterprise Cluster settings verification utility ####
+Skipping test: verify_bootstrap_status
+Skipping test: verify_processes
+Running test: verify_dmcproxy
+		PASS
+Running test: verify_port_range
+		PASS
+Skipping test: verify_pidfiles
+Running test: verify_capabilities
+		PASS
+Running test: verify_existing_sockets
+		PASS
+Running test: verify_host_settings
+		PASS
+Skipping test: verify_tcp_connectivity
+Summary:
+-------
+ALL TESTS PASSED.
+
+
+2020-03-11 18:54:46 [$] executing: 'chown redislabs:redislabs /var/opt/redislabs/log/rlcheck.log'
+2020-03-11 18:54:46 [!] Please logout and login again to make sure all environment changes are applied.
+2020-03-11 18:54:46 [!] Point your browser at the following URL to continue:
+2020-03-11 18:54:46 [!] https://10.0.0.4:8443
+2020-03-11 18:54:46 [$] executing: 'chmod 640 /tmp/install.log'
+2020-03-11 18:54:46 [$] executing: 'chown redislabs:redislabs /tmp/install.log'
+2020-03-11 18:54:46 [$] executing: 'chown redislabs:redislabs /etc/opt/redislabs/redislabs_env_config.sh'
+```
+
 
 
 
