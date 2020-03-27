@@ -6,7 +6,9 @@
 - [Exercise #3: Counter Patterns](https://github.com/ajeetraina/redis/blob/master/3/counting/README.md)
 - [Exercise #4: Redis as a Primary Datastore]()
 
+# Redis Demo
 
+- [Redis Data Structure](https://github.com/ajeetraina/redis/blob/master/2)
 
 # RedisLabs Vs Redis OSS 
 
