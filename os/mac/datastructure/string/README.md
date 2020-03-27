@@ -1,5 +1,11 @@
 # Demonstrating Redis String Data Structure
 
+| Key     | Value      |
+| ------- | ---------- |
+| city1   | Bangalore  |
+| city2   | Pune       |
+| city3   | Delhi      |
+
 # Strings Operation 
 
 - SET and the GET commands are the way we set and retrieve a string value
