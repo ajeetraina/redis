@@ -1,4 +1,4 @@
-# Demonstrating Redis Data Structure
+# Demonstrating Redis String Data Structure
 
 # Strings Operation 
 
@@ -29,6 +29,18 @@ OK
 127.0.0.1:6379> set a1 102 nx
 (nil)
 
+```
+
+# Redis Expire Command
+
+Redis Expire command is used to set the expiry of a key. After the expiry time, the key will not be available in Redis.
+
+```
+127.0.0.1:6379> expire alpha 200
+(integer) 1
+127.0.0.1:6379> get alpha
+"100"
+127.0.0.1:6379>
 ```
 
 
