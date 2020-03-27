@@ -64,6 +64,13 @@ redis-cli
 
 ## SET and GET operation
 
+
+| Key     | Value      |
+| ------- | ---------- |
+| city1   | Bangalore  |
+| city2   | Pune       |
+| city3   | Delhi      |
+
 ```
 127.0.0.1:6379> set city1 bangalore
 127.0.0.1:6379> set city2 pune
@@ -79,9 +86,18 @@ redis-cli
 
 ## Expiring the key
 
+
+
 ```
 expire city1 10
 ```
+
+| Key     | Value      |
+| ------- | ---------- |
+| city2   | Pune       |
+| city3   | Delhi      |
+
+
 
 ## Verify
 
