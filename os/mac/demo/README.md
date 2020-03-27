@@ -132,6 +132,13 @@ id = 930, name = Oaken Barrel Brewing, lng = -86.0901, lat = 39.615
 Import of 16790 records completed.
 ```
 
+# Verification
+
+```
+redis-cli -a redis12# --scan
+```
+
+
 # Testing the application
 
 - Change the directory to the source code directory ‘geo-app’!
