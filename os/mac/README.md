@@ -1,4 +1,4 @@
-# Demonstrating Redis on MacOS
+# Getting Started with Redis on MacOS
 
 ## Pre-requisite
 
