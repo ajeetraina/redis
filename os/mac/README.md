@@ -15,6 +15,7 @@
   - Streams 
   
 - Using Python to insert data structure into Redis
+- Demonstrating Geolocation-Aware Demo Applications with Redis
   
 
 
