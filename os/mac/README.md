@@ -1,5 +1,23 @@
 # A Quick Look at Redis Data Structure Demos and Examples
 
+
+## Demo #
+
+- Preparing Redis Server
+- Running Redis Server with Authentication
+
+- Demonstrating Data Structure
+  - String 
+  - Hash 
+  - List 
+  - Set 
+  - Sorted Set 
+  - Streams 
+  
+- Using Python to insert data structure into Redis
+  
+
+
 ## Pre-requisite
 
 - Install Python
