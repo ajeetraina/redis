@@ -3,7 +3,7 @@
 
 ## Demo #
 
-- Preparing Redis Server
+- Installing Redis on MacOS using brew
 - Running Redis Server with Authentication
 
 - Demonstrating Data Structure
@@ -21,7 +21,13 @@
 
 ## Pre-requisite
 
-- Install Python
+- Installing Redis
+
+```
+brew install redis
+``
+
+- Install Python - We will require it for Demo Purpose
 
 ```
 brew install python
