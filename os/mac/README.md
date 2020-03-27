@@ -1,4 +1,4 @@
-# Getting Started with Redis on MacOS
+# A Quick Look at Redis Data Structure Demos and Examples
 
 ## Pre-requisite
 
