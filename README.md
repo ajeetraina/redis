@@ -8,7 +8,7 @@
 
 # Redis Demo
 
-- [Redis Data Structure](https://github.com/ajeetraina/redis/blob/master/2)
+- [Redis Data Structure](https://github.com/ajeetraina/redis/blob/master/os/mac/README.md)
 
 # RedisLabs Vs Redis OSS 
 
