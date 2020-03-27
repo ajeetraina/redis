@@ -4,18 +4,17 @@
 ## Demo #
 
 - Installing Redis on MacOS using brew
-- Running Redis Server with Authentication
-
+- Running Redis Server with/out Authentication
 - Demonstrating Data Structure
   - String 
   - Hash 
   - List 
   - Set 
   - Sorted Set 
-  - Streams 
-  
+  - Streams  
 - Using Python to insert data structure into Redis
 - Demonstrating Geolocation-Aware Demo Applications with Redis
+- Open Source UI for Redis OSS
   
 
 
