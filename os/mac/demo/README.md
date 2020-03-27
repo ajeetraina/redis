@@ -69,7 +69,41 @@ Successfully installed Jinja2-2.11.1 MarkupSafe-1.1.1 Werkzeug-1.0.0 click-7.1.1
 
 ```
 python --version
+3.7.x
 ```
+
+```
+ajeetraina@Ajeet-Rainas-Macbook-Pro training-geo-public % cd geoapp
+ajeetraina@Ajeet-Rainas-Macbook-Pro geoapp % ls
+app.py			config.pyc		data			importer.py		templates
+config.py		config_default.py	geoappvenv		requirements.txt
+ajeetraina@Ajeet-Rainas-Macbook-Pro geoapp % virtualenv --python=python3 geoappvenv
+created virtual environment CPython3.7.6.final.0-64 in 524ms
+  creator CPython3Posix(dest=/Users/ajeetraina/training-geo-public/geoapp/geoappvenv, clear=False, global=False)
+  seeder FromAppData(download=False, pip=latest, setuptools=latest, wheel=latest, via=copy, app_data_dir=/Users/ajeetraina/Library/Application Support/virtualenv/seed-app-data/v1.0.1)
+  activators PythonActivator,FishActivator,XonshActivator,CShellActivator,PowerShellActivator,BashActivator
+ajeetraina@Ajeet-Rainas-Macbook-Pro geoapp % source geoappvenv/bin/activate
+(geoappvenv) ajeetraina@Ajeet-Rainas-Macbook-Pro geoapp % pip install -r requirements.txt
+Collecting flask
+  Using cached Flask-1.1.1-py2.py3-none-any.whl (94 kB)
+Collecting redis
+  Using cached redis-3.4.1-py2.py3-none-any.whl (71 kB)
+Collecting click>=5.1
+  Using cached click-7.1.1-py2.py3-none-any.whl (82 kB)
+Collecting Jinja2>=2.10.1
+  Using cached Jinja2-2.11.1-py2.py3-none-any.whl (126 kB)
+Collecting itsdangerous>=0.24
+  Using cached itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+Collecting Werkzeug>=0.15
+  Using cached Werkzeug-1.0.0-py2.py3-none-any.whl (298 kB)
+Collecting MarkupSafe>=0.23
+  Downloading MarkupSafe-1.1.1-cp37-cp37m-macosx_10_6_intel.whl (18 kB)
+Installing collected packages: click, MarkupSafe, Jinja2, itsdangerous, Werkzeug, flask, redis
+Successfully installed Jinja2-2.11.1 MarkupSafe-1.1.1 Werkzeug-1.0.0 click-7.1.1 flask-1.1.1 itsdangerous-1.1.0 redis-3.4.1
+(geoappvenv) ajeetraina@Ajeet-Rainas-Macbook-Pro geoapp % python --version
+Python 3.7.6
+```
+
 
 # Run Redis with authentication
 
