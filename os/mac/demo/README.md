@@ -14,6 +14,13 @@ This repository is just sharing the exercises of the 'Geolocation-Aware Applicat
 # Pre-requisite
 
 
+# Cloning the Repository
+
+```
+https://github.com/redislabs-training/training-geo-public
+```
+
+
 
 - Prepare a Python 3.x development environment! The Python dependencies need to be installed:
 - Flask
@@ -111,11 +118,7 @@ Python 3.7.6
 redis-server --requirepass redis12#
 ```
 
-# Cloning the Repository
 
-```
-https://github.com/redislabs-training/training-geo-public
-```
 
 #  Redis Configuration File 
 
