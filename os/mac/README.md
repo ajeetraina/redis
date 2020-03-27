@@ -88,6 +88,6 @@ r.set('foo', 'bar')
 print(r.get('foo'))
 ```
 
-[Next >> Redis Data Structure](https://github.com/ajeetraina/redis/tree/master/os/mac/datastructure)
+[Next >> Redis Data Structure](https://github.com/ajeetraina/redis/blob/master/os/mac/datastructure/string/README.md)
 
 
