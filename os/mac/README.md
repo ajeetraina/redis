@@ -5,6 +5,7 @@
 
 - Installing Redis on MacOS using brew
 - Running Redis Server with/out Authentication
+- Running Redis inside Docker container
 - Demonstrating Data Structure
   - String 
   - Hash 
