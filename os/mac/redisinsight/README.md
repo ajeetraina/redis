@@ -25,3 +25,7 @@ docker run -v redisinsight:/db -p 8001:8001 redislabs/redisinsight
    - key Name: users
    - Field: phone
    - Value: +51540853058
+
+## FEtching Values
+
+- Click on CLI option on the left hand side of RedisInsight
