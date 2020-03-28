@@ -28,29 +28,41 @@ The SET command has interesting options, that are provided as additional argumen
   Only set the key if it already exist
   
   
-
 ```
-127.0.0.1:6379> set a1 101 xx
-OK
-127.0.0.1:6379> get a1
-"101"
-127.0.0.1:6379> set a1 102 nx
-(nil)
-
+127.0.0.1:6379> set city1 bangalore
+127.0.0.1:6379> set city2 pune
+127.0.0.1:6379> set city3 delhi
 ```
 
-# Redis Expire Command
+```
+127.0.0.1:6379> keys *
+1) "city1"
+2) "city2"
+3) "city3"
+```
 
-Redis Expire command is used to set the expiry of a key. After the expiry time, the key will not be available in Redis.
+## Expiring the key
+
+
 
 ```
-127.0.0.1:6379> expire alpha 200
-(integer) 1
-127.0.0.1:6379> get alpha
-"100"
+expire city1 10
+```
+
+| Key     | Value      |
+| ------- | ---------- |
+| city2   | Pune       |
+| city3   | Delhi      |
+
+
+## Verify
+
+```
+127.0.0.1:6379> keys *
+1) "city2"
+2) "city3"
 127.0.0.1:6379>
 ```
-
 
 # String with Integer Values - INCR
 
