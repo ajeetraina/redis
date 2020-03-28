@@ -75,50 +75,18 @@ redis-server
 redis-cli 
 ```
 
-## SET and GET operation
-
-
-| Key     | Value      |
-| ------- | ---------- |
-| city1   | Bangalore  |
-| city2   | Pune       |
-| city3   | Delhi      |
+## Getting Started with Sample String Keys
 
 ```
-127.0.0.1:6379> set city1 bangalore
-127.0.0.1:6379> set city2 pune
-127.0.0.1:6379> set city3 delhi
+set a1 100
+set a2 200
+set a3 300
 ```
 
 ```
-127.0.0.1:6379> keys *
-1) "city1"
-2) "city2"
-3) "city3"
-```
-
-## Expiring the key
-
-
-
-```
-expire city1 10
-```
-
-| Key     | Value      |
-| ------- | ---------- |
-| city2   | Pune       |
-| city3   | Delhi      |
-
-
-
-## Verify
-
-```
-127.0.0.1:6379> keys *
-1) "city2"
-2) "city3"
-127.0.0.1:6379>
+get a1
+get a2
+get a3
 ```
 
 ## Inserting keys using Python
