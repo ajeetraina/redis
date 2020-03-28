@@ -192,3 +192,4 @@ Click on "Test DB Connectivity"
 Database connectivity works as expected!
 ```
 
+[Next > RedisInsight inside Docker container](https://github.com/ajeetraina/redis/blob/master/os/mac/redisinsight/README.md)
