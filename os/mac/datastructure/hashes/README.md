@@ -103,3 +103,5 @@ use Redis’s hash management commands—like HSET, HGET, and HINCRBY—to store
 8) "1"
 127.0.0.1:12000>
 ```
+
+[Next >> ](https://github.com/ajeetraina/redis/blob/master/os/mac/demo/README.md)
