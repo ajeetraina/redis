@@ -148,6 +148,19 @@ r.set('foo', 'bar')
 print(r.get('foo'))
 ```
 
+
+## Running Redis inside Docker Container
+
+```
+docker run -d -p 6380:6379 --name redis1 redis
+```
+
+```
+docker exec -it redis1 sh
+#bash
+#redis-cli 
+```
+
 [Next >> Redis Data Structure](https://github.com/ajeetraina/redis/blob/master/os/mac/datastructure/string/README.md)
 
 
