@@ -37,6 +37,10 @@ $redis-server --version
 Redis server v=5.0.7 sha=00000000:0 malloc=libc bits=64 build=4bd99862b1ce82a9
 ```
 
+```
+redis-cli --version
+redis-cli 5.0.7
+```
 
 - Install Python - We will require it for Demo Purpose
 
