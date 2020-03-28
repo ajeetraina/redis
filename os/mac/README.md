@@ -21,14 +21,22 @@
 
 ## Pre-requisite
 
-- Redis
-- Python
+### MacOS
 
 
 - Installing Redis
 
 ```
 brew install redis
+```
+
+### Ubuntu/Debian
+
+```
+wget <redis-6.0.tar.gz>
+tar xvf <redis-6.0.tar.gz>
+cd redis-6.0-rc2
+make & make install
 ```
 
 - Verifying Redis Installation
