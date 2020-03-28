@@ -26,6 +26,8 @@ The SET command has interesting options, that are provided as additional argumen
   Only set the key if it does not already exist
 - XX 
   Only set the key if it already exist
+  
+  [Next >>](https://github.com/ajeetraina/redis/blob/master/os/mac/datastructure/lists/README.md)
 
 ```
 127.0.0.1:6379> set a1 101 xx
