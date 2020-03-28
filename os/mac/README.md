@@ -124,6 +124,13 @@ r.set('foo', 'bar')
 print(r.get('foo'))
 ```
 
+## Running Redis on specific port
+
+```
+redis-server --port 6390
+```
+
+
 
 ## Running Redis inside Docker Container
 
