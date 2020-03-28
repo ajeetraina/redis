@@ -84,3 +84,32 @@ deps/readies/mk/build.rules:17: warning: ignoring old commands for target `clean
 8188:M 29 Mar 2020 02:01:58.047 * Module 'ft' loaded from src/redisearch.so
 8188:M 29 Mar 2020 02:01:58.047 * Ready to accept connections
 ```
+
+```
+127.0.0.1:6379> module list
+1) 1) "name"
+   2) "ft"
+   3) "ver"
+   4) (integer) 999999
+127.0.0.1:6379> 
+```
+
+# Example:
+
+We’ll create a product catalog index, where each product has a name, description and price (allowing us to filter products by price).
+
+## Syntax:
+
+```
+FT.CREATE <index_name> <field> [<score>|NUMERIC] ...
+```
+
+
+Or in our example:
+
+```
+FT.CREATE products name 10.0 description 1.0 price NUMERIC
+```
+
+This means that name and description are treated as text fields with respective scores of 10 and 1, and that price is a numeric field used for filtering.
+
