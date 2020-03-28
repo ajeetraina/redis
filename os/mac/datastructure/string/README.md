@@ -89,4 +89,4 @@ OK
 127.0.0.1:6379>
 ```
 
-[Next >>](https://github.com/ajeetraina/redis/blob/master/os/mac/datastructure/lists/README.md)
+[Next >>](https://github.com/ajeetraina/redis/tree/master/os/mac/datastructure/hashes)
