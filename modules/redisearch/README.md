@@ -139,7 +139,7 @@ ft.search myindex “collabnix” limit 0 10
 
 ```
 
-```
+
 ## Dropping an Index
 
 ```
