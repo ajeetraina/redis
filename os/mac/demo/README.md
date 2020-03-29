@@ -192,4 +192,7 @@ Click on "Test DB Connectivity"
 Database connectivity works as expected!
 ```
 
+Enter the City Name as "New York" and range as "50 miles" and it should show that number of breweries shops.
+
+
 [Next > RedisInsight inside Docker container](https://github.com/ajeetraina/redis/blob/master/os/mac/redisinsight/README.md)
