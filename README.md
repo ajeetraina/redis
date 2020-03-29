@@ -16,3 +16,7 @@
 - [Using Python to insert data structure into Redis](https://github.com/ajeetraina/redis/tree/master/os/mac#connecting-to-redis-using-python---with-auth)
 - [Demonstrating Geolocation-Aware Demo Applications with Redis](https://github.com/ajeetraina/redis/blob/master/os/mac/demo/README.md)
 - [Open Source UI for Redis OSS](https://github.com/ajeetraina/redis/blob/master/os/mac/redisinsight/README.md)
+
+## RediSearch
+
+- [Getting Started](https://github.com/ajeetraina/redis/tree/master/modules/redisearch/README.md)
