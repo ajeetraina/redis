@@ -3,7 +3,7 @@
 ## Infra
 
 - MacOS
-- Ensure that redis server is not running
+
 
 ## Cloning the RediSearch
 
@@ -96,20 +96,36 @@ deps/readies/mk/build.rules:17: warning: ignoring old commands for target `clean
 
 # Example:
 
-We’ll create a product catalog index, where each product has a name, description and price (allowing us to filter products by price).
+Let us start adding document to RediSearch.
 
-## Syntax:
-
-```
-FT.CREATE <index_name> <field> [<score>|NUMERIC] ...
-```
-
-
-Or in our example:
+## Create Index with fields
 
 ```
-FT.CREATE products name 10.0 description 1.0 price NUMERIC
+FT.create myindex schema title TEXT weight 5.0 body TEXT url TEXT
 ```
 
-This means that name and description are treated as text fields with respective scores of 10 and 1, and that price is a numeric field used for filtering.
+## Adding documents to Index
 
+```
+FT.add myindex doc1 1.0 fields title “Collabnix” collabnix “My Personal Website” URL “http://www.collabnix.com“
+```
+
+## Dropping an Index
+
+```
+ft.drop myindex
+```
+
+## Redisearch
+
+
+```
+ft.search myindex “hello world” limit 0 10
+```
+
+
+```
+ft.search myindex “collabnix” limit 0 10
+```
+
+```
