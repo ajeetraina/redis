@@ -110,11 +110,7 @@ FT.create myindex schema title TEXT weight 5.0 body TEXT url TEXT
 FT.add myindex doc1 1.0 fields title “Collabnix” collabnix “My Personal Website” URL “http://www.collabnix.com“
 ```
 
-## Dropping an Index
 
-```
-ft.drop myindex
-```
 
 ## Redisearch
 
@@ -128,4 +124,24 @@ ft.search myindex “hello world” limit 0 10
 ft.search myindex “collabnix” limit 0 10
 ```
 
+```
+127.0.0.1:6379> ft.search myindex “collabnix” limit 0 10
+1) (integer) 1
+2) "doc1"
+3) 1) "title"
+   2) "\xe2\x80\x9cCollabnix\xe2\x80\x9d"
+   3) "collabnix"
+   4) "\xe2\x80\x9cMy"
+   5) "Personal"
+   6) "Website\xe2\x80\x9d"
+   7) "URL"
+   8) "\xe2\x80\x9chttp://www.collabnix.com\xe2\x80\x9c"
+
+```
+
+```
+## Dropping an Index
+
+```
+ft.drop myindex
 ```
