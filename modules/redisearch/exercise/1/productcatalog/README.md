@@ -85,42 +85,7 @@ Solution:
 ## Searching
 
 
-```
-127.0.0.1:6379> ft.search category "Mobile"
-1) (integer) 1
-2) "cat1"
-3) 1) "title"
-   2) "Mobile"
-   3) "description"
-   4) "Range of Phones"
-   5) "product"
-   6) "\xe2\x80\x9cSamsung\xe2\x80\x9d"
-127.0.0.1:6379>
-```
 
-```
-127.0.0.1:6379> ft.search category "TV"
-1) (integer) 1
-2) "cat3"
-3) 1) "title"
-   2) "TV"
-   3) "description"
-   4) "Range of TVs"
-   5) "product"
-   6) "\xe2\x80\x9cXiaomi\xe2\x80\x9d"
-```
-
-```
-127.0.0.1:6379> ft.search category "Laptop"
-1) (integer) 1
-2) "cat2"
-3) 1) "title"
-   2) "Laptop"
-   3) "description"
-   4) "Range of Laptops"
-   5) "product"
-   6) "\xe2\x80\x9cApple\xe2\x80\x9d"
-```
 
 ## searching Products
 
