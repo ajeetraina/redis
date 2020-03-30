@@ -82,3 +82,80 @@ Solution:
 ```
 
 
+## Searching
+
+
+```
+127.0.0.1:6379> ft.search category "Mobile"
+1) (integer) 1
+2) "cat1"
+3) 1) "title"
+   2) "Mobile"
+   3) "description"
+   4) "Range of Phones"
+   5) "product"
+   6) "\xe2\x80\x9cSamsung\xe2\x80\x9d"
+127.0.0.1:6379>
+```
+
+```
+127.0.0.1:6379> ft.search category "TV"
+1) (integer) 1
+2) "cat3"
+3) 1) "title"
+   2) "TV"
+   3) "description"
+   4) "Range of TVs"
+   5) "product"
+   6) "\xe2\x80\x9cXiaomi\xe2\x80\x9d"
+```
+
+```
+127.0.0.1:6379> ft.search category "Laptop"
+1) (integer) 1
+2) "cat2"
+3) 1) "title"
+   2) "Laptop"
+   3) "description"
+   4) "Range of Laptops"
+   5) "product"
+   6) "\xe2\x80\x9cApple\xe2\x80\x9d"
+```
+
+## searching Products
+
+```
+127.0.0.1:6379> ft.search products "Apple"
+1) (integer) 1
+2) "prod1"
+3)  1) "title"
+    2) "Macbook Pro 13 inch"
+    3) "description"
+    4) "14 Inch Brand New Apple Macbook Pro 2019 Model"
+    5) "vendor"
+    6) "Apple"
+    7) "price"
+    8) "1325"
+    9) "category"
+   10) "cat2"
+127.0.0.1:6379>
+```
+
+```
+127.0.0.1:6379> ft.search products "Samsung"
+1) (integer) 1
+2) "prod2"
+3)  1) "title"
+    2) "Samsung S7"
+    3) "description"
+    4) "Good Camera Quality"
+    5) "vendor"
+    6) "Samsung"
+    7) "price"
+    8) "325"
+    9) "category"
+   10) "cat1"
+```
+
+
+
