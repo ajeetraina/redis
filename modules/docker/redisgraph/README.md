@@ -1,5 +1,5 @@
 
-# Running RedisGraph - A Graph Database Module for Redis
+# Running RedisGraph - A Graph Database Module for Redis inside Docker container
 
 ```
 docker run -p 6379:6379 redislabs/redismod
