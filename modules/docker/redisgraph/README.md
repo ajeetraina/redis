@@ -41,3 +41,5 @@ If you want to see it in action on RedisGraph, just paste on RedisGraph query se
 ```
 MATCH (r:Rider)-[:rides]->(t:Team) WHERE t.name = 'Yamaha' RETURN r.name, t.name
 ```
+
+![My Image](https://github.com/ajeetraina/redis/blob/master/modules/docker/redisgraph/Screen%20Shot%202020-04-06%20at%2011.43.44%20PM.png)
