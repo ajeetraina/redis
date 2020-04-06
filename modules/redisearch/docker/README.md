@@ -98,4 +98,5 @@ FT.add myindex doc1 1.0 fields title “Collabnix” collabnix “My Personal We
 - Click on RediSearch on the left pane
 - Just put “collabnix” limit 0 10 into the box section and it will search it in no time.
 
+![My Image](https://github.com/ajeetraina/redis/blob/master/modules/redisearch/docker/Screen%20Shot%202020-04-06%20at%209.00.15%20PM.png)
 
