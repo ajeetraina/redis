@@ -19,3 +19,5 @@ OK
    2) "42"
 127.0.0.1:6379>
 ```
+
+![My Image](https://github.com/ajeetraina/redis/blob/master/modules/docker/redistimeseries/Screen%20Shot%202020-04-07%20at%201.03.22%20AM.png)
