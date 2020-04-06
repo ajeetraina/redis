@@ -34,3 +34,50 @@ ajeetraina@Ajeet-Rainas-Macbook-Pro ~ % docker exec -it a8 sh
 root@a8a8061b053c:/data# redis-cli
 127.0.0.1:6379> FT.create key ...options...
 ```
+
+## Running RedisInsight using Docker Container
+
+```
+docker run -v redisinsight:/db -p 8001:8001 redislabs/redisinsight
+```
+
+```
+ajeetraina@Ajeet-Rainas-Macbook-Pro ~ % docker ps
+CONTAINER ID        IMAGE                         COMMAND                  CREATED             STATUS              PORTS                    NAMES
+e66ce908e758        redislabs/redisinsight        "bash ./docker-entry…"   4 minutes ago       Up 4 minutes        0.0.0.0:8001->8001/tcp   tender_euler
+a8a8061b053c        redislabs/redisearch:latest   "docker-entrypoint.s…"   10 minutes ago      Up 10 minutes       0.0.0.0:6379->6379/tcp   sweet_euler
+```
+
+## Connecting to 
+
+```
+docker exec -t a8 sh
+127.0.0.1:6379> module list
+1) 1) "name"
+   2) "ft"
+   3) "ver"
+   4) (integer) 10610
+```
+
+Let us start adding document to RediSearch.
+
+## Create Index with fields
+
+
+```
+127.0.0.1:6379> FT.create myindex schema title TEXT weight 5.0 body TEXT url TEXT
+OK
+127.0.0.1:6379>
+```
+
+## Adding documents to Index
+
+```
+FT.add myindex doc1 1.0 fields title “Collabnix” collabnix “My Personal Website” URL “http://www.collabnix.com“
+```
+
+## Searching
+
+Just put “collabnix” limit 0 10 into the box section and it will search it in no time.
+
+
