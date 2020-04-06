@@ -78,6 +78,24 @@ FT.add myindex doc1 1.0 fields title “Collabnix” collabnix “My Personal We
 
 ## Searching
 
-Just put “collabnix” limit 0 10 into the box section and it will search it in no time.
+```
+127.0.0.1:6379> ft.search myindex “collabnix” limit 0 10
+1) (integer) 1
+2) "doc1"
+3) 1) "title"
+   2) "\xe2\x80\x9cCollabnix\xe2\x80\x9d"
+   3) "collabnix"
+   4) "\xe2\x80\x9cMy"
+   5) "Personal"
+   6) "Website\xe2\x80\x9d"
+   7) "URL"
+   8) "\xe2\x80\x9chttp://www.collabnix.com\xe2\x80\x9c
+ ```
+ 
+ You can see the same output under RediSearch:
+
+- Connect to DB 192.168.2.6 without any password
+- Click on RediSearch on the left pane
+- Just put “collabnix” limit 0 10 into the box section and it will search it in no time.
 
 
