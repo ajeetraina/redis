@@ -1,0 +1,19 @@
+[
+{ 
+    "_id" : "5d9098426e74d869669ebc11", 
+    "url" : "/chemistry/", 
+    "description" : "Chemistry - Understand the basic concepts of Organic, Inorganic, and Physical Chemistry with detailed explanations and practical applications of concepts. Get complete chemistry concept pages for free at BYJU'S", 
+    "h1" : "Chemistry", 
+    "instance" : "chemistry", 
+    "title" : "Chemistry Online Materials - chemistry definitions | chemical equations", 
+    "isActive" : true
+},
+{ 
+    "_id" : "5d9098426e74d869669ebc24", 
+    "url" : "/physics/electrostatic-conductor/", 
+    "description" : "Learn about the principle points to be considered about the electrostatic properties of a conductor with examples and explanation @Byju's.", 
+    "h1" : "Electrostatic Properties of a Conductor", 
+    "instance" : "physics", 
+    "title" : "Electrostatics of Conductor - Properties of Conductor | Physics", 
+    "isActive" : true
+}]
