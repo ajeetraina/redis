@@ -1,0 +1,36 @@
+version: '3'
+services:
+  #Gears
+  gears:
+    image: redislabs/redisgears:edge
+    container_name: gears
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "36379:6379"
+    volumes:
+      - ./:/home
+    networks:
+      - gears-network
+  #MySQL Service
+  mysql:
+    image: mysql:8.0.15
+    container_name: gearsmysql
+    restart: always
+    tty: true
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "33306:3306"
+    environment:
+      MYSQL_DATABASE: gears
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_USER: redislabs
+      MYSQL_PASSWORD: redislabspass
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - gears-network
+#Docker Networks
+networks:
+  gears-network:
+    driver: bridge
