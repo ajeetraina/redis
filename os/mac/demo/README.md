@@ -1,8 +1,8 @@
 # Geolocation-Aware Demo Applications with Redis
 
-This repository provides some exercises around Redis commands that are related to geospatial search.
+This demonstrate geospatial search.
 
-This repository is just sharing the exercises of the 'Geolocation-Aware Applications with Redis' training. The learning objectives of the entire training are:
+
 
 - Know how Geo-aware solutions are used and which problems are addressed by them
 - Understand and be able to present the technology basics
